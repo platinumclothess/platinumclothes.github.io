@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platinum - Preventa</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+        #header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        #slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        #slider img {
+            width: 100%;
+            display: none;
+        }
+        #slider img:first-child {
+            display: block;
+        }
+        .button-container {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .button-container a {
+            display: inline-block;
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <img src="https://i.ibb.co/cFYTrWB/platinumcort.png" alt="platinumcort" border="0" width="380" height="160"></a>
+         
+       <br>
+      <img src="https://i.ibb.co/hHTrtZK/PREVENTA.png" alt="PREVENTA" border="0" width="380" height="160"></a> 
+    </div>
+    <div id="slider">
+        <a href="1.html">
+            <img src="https://i.ibb.co/VWSw5N7/madness.jpg" alt="madness" border="0"></a>
+        </a>
+        <a href="1.html">
+            <img src="https://i.ibb.co/J3srNfD/cosmicazul.jpg" alt="cosmicazul" border="0"></a>
+        </a>
+        <a href="1.html">
+            <img src="https://i.ibb.co/W6yn3Tg/cosmicnegro.jpg" alt="cosmicnegro" border="0"></a>
+
+        </a>
+        <a href="1.html">
+            <img src="https://i.ibb.co/3SqdzGs/mockup-5.jpg" alt="mockup-5" border="0"></a>
+
+        </a>
+    </div>
+    </div>
+    <button class="prev" onclick="prevImage()">&#10094;</button>
+    <button class="next" onclick="nextImage()">&#10095;</button>
+
+    <script>
+        var index = 0;
+        var images = document.querySelectorAll('#slider img');
+
+        function showImage(index) {
+            for (var i = 0; i < images.length; i++) {
+                images[i].style.display = 'none';
+            }
+            images[index].style.display = 'block';
+        }
+
+        function nextImage() {
+            index = (index + 1) % images.length;
+            showImage(index);
+        }
+
+        function prevImage() {
+            index = (index - 1 + images.length) % images.length;
+            showImage(index);
+        }
+
+        // Mostrar la primera imagen al cargar la página
+        showImage(index);
+    </script>
+</body>
+</html>
